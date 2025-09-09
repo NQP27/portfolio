@@ -1,10 +1,10 @@
-import { Component, signal, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
+import { Component, signal, ElementRef, ViewChild, AfterViewInit, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./components/home/home";
-import { ProjectComponent } from './components/projects/projects';
+import { StackComponent } from './components/stack/stack';
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent, ProjectComponent],
+  imports: [HomeComponent, StackComponent],
   templateUrl: './app.html',
   styleUrl: './app.less'
 })
@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
 
   sections: { id: string; navHref: string }[] = [
     { id: 'home-sector', navHref: '#home-sector' },
-    { id: 'project-sector', navHref: '#project-sector' },
+    { id: 'stack-sector', navHref: '#stack-sector' },
     { id: 'tools-sector', navHref: '#tools-sector' },
     { id: 'experience-sector', navHref: '#experience-sector' },
     { id: 'thoughts-sector', navHref: '#thoughts-sector' },
@@ -23,6 +23,11 @@ export class AppComponent implements AfterViewInit {
 
 
   ngAfterViewInit() {
+    // scroll về đầu trang sau khi view render
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
     this.updateActiveSection(); // set Home active khi load trang
   }
 

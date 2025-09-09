@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-<nav class="d-flex justify-content-center fixed-top m-4">
+<nav class="d-flex justify-content-end fixed-top m-4">
   <ul class="list-unstyled d-flex bg-dark rounded-3 px-2 py-2 shadow-lg">
     <li class="px-3">
       <a href="#home-sector" class="nav-icon active" (click)="scrollTo('home-sector', $event)">
@@ -7,12 +7,7 @@
       </a>
     </li>
     <li class="px-3">
-      <a href="#project-sector" class="nav-icon" (click)="scrollTo('project-sector', $event)">
-        <i class="far fa-folder"></i>
-      </a>
-    </li>
-    <li class="px-3">
-      <a href="#tools-sector" class="nav-icon" (click)="scrollTo('tools-sector', $event)">
+      <a href="#stack-sector" class="nav-icon" (click)="scrollTo('stack-sector', $event)">
         <i class="fas fa-wrench"></i>
       </a>
     </li>
@@ -22,7 +17,11 @@
       </a>
     </li>
     <li class="px-3">
-      <a href="#thoughts-sector" class="nav-icon" (click)="scrollTo('thoughts-sector', $event)">
+      <a
+        href="#certificate-sector"
+        class="nav-icon"
+        (click)="scrollTo('certificate-sector', $event)"
+      >
         <i class="far fa-pen-to-square"></i>
       </a>
     </li>
@@ -35,13 +34,13 @@
 </nav>
 
 <!-- MAIN CONTENT -->
-<main class="pt-5">
-  <section id="home-sector" class="section vh-100">
+<main>
+  <section id="home-sector" class="section vh-100" style="margin-bottom: 200px">
     <app-home></app-home>
   </section>
 
-  <section id="project-sector" class="section vh-100">
-    <app-projects></app-projects>
+  <section id="stack-sector" class="section vh-100">
+    <app-stack></app-stack>
   </section>
 
   <!-- <section id="tools-sector" class="section vh-100">
