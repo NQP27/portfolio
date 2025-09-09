@@ -23,6 +23,7 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "src/assets",
+              "src/_redirects",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -77,6 +78,7 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "src/assets",
+              "src/_redirects",
               {
                 "glob": "**/*",
                 "input": "public"
