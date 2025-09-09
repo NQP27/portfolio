@@ -28,7 +28,8 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/custom-theme.scss", "src/styles.less"]
+            "styles": ["src/custom-theme.scss", "src/styles.less"],
+            "deployUrl": "./"
           },
           "configurations": {
             "production": {
