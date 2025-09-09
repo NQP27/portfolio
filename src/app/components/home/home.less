@@ -1,17 +1,22 @@
-.nav-icon {
+.self-info {
+  background-color: #2d2e2f;
+  padding: 20px; /* để thấy rõ nền */
+  border-radius: 10px; /* optional đẹp hơn */
+}
+.social-icon {
   color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
   text-decoration: none;
+  border-radius: 50%;
   padding: 0.5rem;
-	border-radius: 50%;
 }
 
-.nav-icon.active,
-.nav-icon:hover {
+.social-icon.active,
+.social-icon:hover {
   background-color: #06570c;
   color: white;
   border-radius: 50%;
@@ -19,6 +24,3 @@
   transform: scale(1.2); /* to hơn 20% */
 }
 
-.section {
-  scroll-margin-top: 100px; /* bằng hoặc lớn hơn chiều cao navbar */
-}
