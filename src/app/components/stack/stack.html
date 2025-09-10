@@ -10,8 +10,22 @@
         <div class="card h-100 text-center p-3 shadow-sm stack-card">
           <h5 class="card-title mb-3">{{ category.name }}</h5>
           <div class="stack-items d-flex flex-wrap justify-content-center gap-3">
-            <div class="stack-item" #stackItem *ngFor="let item of category.items">
-              <img class="stack-svg" [src]="item.linkImage" [alt]="item.name" width="40" height="40" />
+            <div
+              class="stack-item"
+              #stackItem
+              *ngFor="let item of category.items"
+              (click)="openLink(item.link)"
+              data-bs-toggle="tooltip"
+              [attr.title]="item.alt"
+              style="cursor: pointer"
+            >
+              <img
+                class="stack-svg"
+                [src]="item.linkImage"
+                [alt]="item.name"
+                width="40"
+                height="40"
+              />
               <div class="item-name mt-1">{{ item.name }}</div>
             </div>
           </div>
