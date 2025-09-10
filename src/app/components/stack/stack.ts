@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, HostList
 import { CommonModule } from '@angular/common';
 interface StackItem {
 	name: string;
-	iconClass: string;
+	linkImage: string;
 }
 
 interface StackCategory {
@@ -21,61 +21,71 @@ export class StackComponent implements AfterViewInit {
 		{
 			name: 'Language',
 			items: [
-				{ name: 'C#', iconClass: 'devicon-csharp-plain colored' },
-				{ name: 'Python', iconClass: 'devicon-python-plain colored' },
-				{ name: 'JavaScript', iconClass: 'devicon-javascript-plain colored' }
+				{ name: 'C#', linkImage: '/assets/icons/cs.svg' },
+				{ name: 'Python', linkImage: '/assets/icons/python.svg' },
+				{ name: 'TypeScript', linkImage: '/assets/icons/typescript.svg' }
 			]
 		},
 		{
 			name: 'Framework',
 			items: [
-				{ name: '.NET', iconClass: 'devicon-dotnetcore-plain colored' },
-				{ name: 'Angular', iconClass: 'devicon-angularjs-plain colored' },
-				{ name: 'Bootstrap', iconClass: 'devicon-bootstrap-plain colored' },
+				{ name: 'ASP.NET Core', linkImage: '/assets/icons/dotnet.svg' },
+				{ name: 'Angular', linkImage: '/assets/icons/angular.svg' },
+				{ name: 'Bootstrap', linkImage: '/assets/icons/bootstrap.svg' },
+			]
+		},
+		{
+			name: 'ETL Framework',
+			items: [
+				{ name: 'Airflow', linkImage: '/assets/icons/airflow.svg' },
+				{ name: 'Sparks', linkImage: '/assets/icons/spark.svg' },
 			]
 		},
 		{
 			name: 'Database',
 			items: [
-				{ name: 'SQLServer', iconClass: 'devicon-microsoftsqlserver-plain colored' },
-				{ name: 'PostgreSQL', iconClass: 'devicon-postgresql-plain colored' }
+				{ name: 'SQLServer', linkImage: '/assets/icons/sqlserver.svg' },
+				{ name: 'PostgreSQL', linkImage: '/assets/icons/postgresql.svg' }
 			]
 		},
 		{
-			name: 'Service',
+			name: 'Cloud',
 			items: [
-				{ name: 'AWS', iconClass: 'devicon-amazonwebservices-plain colored' },
-				{ name: 'Google Cloud', iconClass: 'devicon-google-plain colored' },
+				{ name: 'AWS', linkImage: '/assets/icons/aws.svg' },
+				{ name: 'GCP', linkImage: '/assets/icons/gcp.svg' },
 			]
 		},
 		{
 			name: 'Other',
 			items: [
-				{ name: 'Git', iconClass: 'devicon-git-plain colored' },
+				{ name: 'Git', linkImage: '/assets/icons/git.svg' },
+				{ name: 'Docker', linkImage: '/assets/icons/docker.svg' },
+				{ name: 'Postman', linkImage: '/assets/icons/postman.svg' },
 			]
 		},
+
 	];
 
 	@ViewChildren('stackItem') stackItems!: QueryList<ElementRef>;
-  @ViewChild('stackBg') stackBg!: ElementRef<HTMLDivElement>;
+	@ViewChild('stackBg') stackBg!: ElementRef<HTMLDivElement>;
 
-  ngAfterViewInit() {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
-          el.classList.add('visible');
-          observer.unobserve(el); 
-        }
-      });
-    }, { threshold: 0.2 });
+	ngAfterViewInit() {
+		const observer = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const el = entry.target as HTMLElement;
+					el.classList.add('visible');
+					observer.unobserve(el);
+				}
+			});
+		}, { threshold: 0.2 });
 
-    // observe chữ nền
-    if (this.stackBg) {
-      observer.observe(this.stackBg.nativeElement);
-    }
+		// observe chữ nền
+		if (this.stackBg) {
+			observer.observe(this.stackBg.nativeElement);
+		}
 
-    // observe icons
-    this.stackItems.forEach(el => observer.observe(el.nativeElement));
-  }
+		// observe icons
+		this.stackItems.forEach(el => observer.observe(el.nativeElement));
+	}
 }

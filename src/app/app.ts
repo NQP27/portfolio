@@ -11,7 +11,7 @@ import { StackComponent } from './components/stack/stack';
 export class AppComponent implements AfterViewInit {
   @ViewChild('homeLink') homeLink!: ElementRef;
 
-
+  currentSectionId: string = 'home-sector'; // ✅ biến class, không reset mỗi lần
   sections: { id: string; navHref: string }[] = [
     { id: 'home-sector', navHref: '#home-sector' },
     { id: 'stack-sector', navHref: '#stack-sector' },
@@ -38,6 +38,7 @@ export class AppComponent implements AfterViewInit {
       section.scrollIntoView({ behavior: 'smooth' });
     }
     this.setActive(sectionId);
+    this.currentSectionId = sectionId; // ✅ cập nhật khi click
   }
 
   setActive(sectionId: string) {
@@ -48,24 +49,23 @@ export class AppComponent implements AfterViewInit {
     if (activeItem) activeItem.classList.add('active');
   }
 
-
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.updateActiveSection();
   }
 
   private updateActiveSection() {
-    let currentSectionId = 'home-sector'; // default Home
     const scrollPosition = window.scrollY + 120; // offset cho navbar fixed
 
     for (let sec of this.sections) {
       const element = document.getElementById(sec.id);
       if (element && element.offsetTop <= scrollPosition) {
-        currentSectionId = sec.id;
+        this.currentSectionId = sec.id; // ✅ cập nhật thẳng vào property class
       }
     }
 
-    this.setActive(currentSectionId);
+    this.setActive(this.currentSectionId);
   }
+
   protected readonly title = signal('portfolio');
 }
