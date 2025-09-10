@@ -78,22 +78,24 @@ export class StackComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		const observer = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const el = entry.target as HTMLElement;
-					el.classList.add('visible');
-					observer.unobserve(el);
-				}
-			});
-		}, { threshold: 0.2 });
+		setTimeout(() => {
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const el = entry.target as HTMLElement;
+						el.classList.add('visible');
+						observer.unobserve(el);
+					}
+				});
+			}, { threshold: 0.2 });
 
-		// observe chữ nền
-		if (this.stackBg) {
-			observer.observe(this.stackBg.nativeElement);
-		}
+			// observe chữ nền
+			if (this.stackBg) {
+				observer.observe(this.stackBg.nativeElement);
+			}
 
-		// observe icons
-		this.stackItems.forEach(el => observer.observe(el.nativeElement));
+			// observe icons
+			this.stackItems.forEach(el => observer.observe(el.nativeElement));
+		}, 500); // 50ms delay để đảm bảo QueryList đầy đủ
 	}
 }

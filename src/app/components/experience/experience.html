@@ -1,0 +1,44 @@
+<div class="container experience-container">
+  <div class="experience-title-wrapper text-center">
+    <h2 class="experience-title">EXPERIENCE</h2>
+    <div class="experience-title-bg" #experienceBg>EXPERIENCE</div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="stats col-md-3 text-end left-side">
+        <div class="stat-item mb-4">
+          <h3>2+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat-item mb-4">
+          <h3>20</h3>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item mb-4">
+          <h3>3</h3>
+          <p>Companies Worked</p>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="timeline">
+          <div
+            class="timeline-item"
+            *ngFor="let item of timeline; let i = index"
+            #timelineItem
+            [class.left]="i % 2 === 0"
+            [class.right]="i % 2 !== 0"
+            (click)="openLink(item.link)"
+          >
+            <div class="timeline-content">
+              <h5 class="timeline-role">{{ item.role }}</h5>
+              <div class="timeline-date">{{ item.start }} - {{ item.end }}</div>
+              <img class="timeline-logo" [src]="item.image" [alt]="item.alt" [title]="item.alt" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

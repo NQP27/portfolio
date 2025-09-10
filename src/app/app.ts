@@ -2,9 +2,10 @@ import { Component, signal, ElementRef, ViewChild, AfterViewInit, HostListener, 
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./components/home/home";
 import { StackComponent } from './components/stack/stack';
+import { ExperienceComponent } from "./components/experience/experience";
 @Component({
   selector: 'app-root',
-  imports: [HomeComponent, StackComponent],
+  imports: [HomeComponent, StackComponent, ExperienceComponent],
   templateUrl: './app.html',
   styleUrl: './app.less'
 })
