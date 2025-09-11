@@ -21,7 +21,8 @@ interface StackCategory {
 })
 export class StackComponent implements AfterViewInit {
 
-	basePath = 'portfolio/assets/icons';
+	basePath = '/portfolio/assets/icons';
+	// basePath = '/assets/icons';
 	categories: StackCategory[] = [
 		{
 			name: 'Languages',
