@@ -19,8 +19,8 @@ interface ExperienceItem {
 	imports: [CommonModule]
 })
 export class ExperienceComponent implements AfterViewInit {
-	// basePath = '/portfolio/assets/images';
-	basePath = '/assets/images';
+	basePath = '/portfolio/assets/images';
+	// basePath = '/assets/images';
 	timeline: ExperienceItem[] = [
 		{ company: 'GTSC', link: 'https://www.gtsc.vn/', alt: 'Công ty cổ phần thương mại và dịch vụ công nghệ GTSC Việt Nam', start: '06/2025', end: 'Present', role: 'Software Developer', image: `${this.basePath}/gtsc.png` },
 		{ company: 'TrueConnect', link: 'https://trueconnect.vn/', alt: 'Công ty Cổ phần Công nghệ True Connect', start: '04/2024', end: '06/2025', role: 'Backend Developer', image: `${this.basePath}/true.png` },
