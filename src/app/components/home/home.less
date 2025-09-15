@@ -3,92 +3,64 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-}
 
-.home-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/portfolio/assets/images/profile.jpg');
-  // background-image: url('/assets/images/profile.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(60%);
-  z-index: 1;
-}
-
-/* ----- Animation keyframes ----- */
-@keyframes fadeInRightSmooth {
-  0% {
-    opacity: 0;
-    transform: translate(80px, -50%); /* trượt xa hơn chút */
+  .home-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-image: url('/portfolio/assets/images/profile.jpg');
+    background-image: url('/assets/images/profile.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(60%);
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
   }
-  60% {
-    opacity: 1;
-    transform: translate(-10px, -50%); /* overshoot nhẹ */
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, -50%); /* vị trí cuối */
+
+  .home-info {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: white;
+    text-align: right;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+    }
+
+    .social-links a {
+      font-size: 2.5rem;
+    }
   }
 }
-
-/* Container info */
-.home-info {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
-  z-index: 2;
-  color: white;
-  text-align: right;
-  opacity: 0;
-  animation: fadeInRightSmooth 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-/* Elements xuất hiện lần lượt */
 .home-info h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #ffffff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  animation: fadeInRightSmooth 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-  animation-delay: 0.3s;
+  font-size: clamp(1.8rem, 5vw, 4rem); /* min 1.8rem, max 4rem, auto scale theo % màn hình */
 }
 
 .home-info .subtitle {
-  margin-bottom: 5px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  opacity: 0;
-  animation: fadeInRightSmooth 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-  animation-delay: 0.6s;
+  font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
-.home-info p {
-  opacity: 0;
-  animation: fadeInRightSmooth 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-  animation-delay: 0.9s;
-}
 
-.home-info .social-links {
-  opacity: 0;
-  animation: fadeInRightSmooth 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-  animation-delay: 1.2s;
-}
 
-.social-links a {
-  color: white;
-  font-size: 2.5rem;
-  margin-left: 10px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.social-links a:hover {
-  color: #00aced;
-  transform: scale(1.1);
+/* Mobile */
+@media (max-width: 575.98px) {
+  .home-info {
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .home-info .social-links {
+    justify-content: end !important;
+  }
 }
