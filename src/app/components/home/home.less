@@ -19,7 +19,21 @@
     max-width: 100%;
     height: auto;
   }
-
+  /* ----- Animation keyframes ----- */
+  @keyframes fadeInRightSmooth {
+    0% {
+      opacity: 0;
+      transform: translate(80px, -50%); /* trượt xa hơn chút */
+    }
+    60% {
+      opacity: 1;
+      transform: translate(-10px, -50%); /* overshoot nhẹ */
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, -50%); /* vị trí cuối */
+    }
+  }
   .home-info {
     position: absolute;
     top: 50%;
@@ -49,8 +63,6 @@
 .home-info .subtitle {
   font-size: clamp(1rem, 3vw, 1.5rem);
 }
-
-
 
 /* Mobile */
 @media (max-width: 575.98px) {

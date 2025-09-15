@@ -48,7 +48,7 @@
               type="text"
               id="name"
               formControlName="name"
-              placeholder="Nguyễn Bảo Phúc"
+              placeholder="John Doe"
               [class.invalid]="isSubmitted && contactForm.controls['name'].invalid"
             />
             <!-- Tooltip -->
@@ -63,7 +63,7 @@
               type="email"
               id="email"
               formControlName="email"
-              placeholder="baophuc@gmail.com"
+              placeholder="johndoe@gmail.com"
               [class.invalid]="isSubmitted && contactForm.controls['email'].invalid"
             />
             @if (isSubmitted && contactForm.controls['email'].invalid) {
