@@ -1,44 +1,49 @@
+/* Animation ban đầu */
 .contact-intro,
 .contact-form {
   opacity: 0;
-  transform: translateX(50px); // default: move right
+  transform: translateX(50px); /* default: move right */
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Intro trượt từ trái */
 .contact-intro {
-  transform: translateX(-50px); // intro từ trái
+  transform: translateX(-50px);
 }
 
+/* Khi hiện */
 .contact-intro.visible,
 .contact-form.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
+/* Phần intro */
 .contact-intro {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   font-size: 1rem;
   margin-top: 6rem;
+}
 
-  h3 {
-    font-size: 3rem !important;
-    font-weight: 700 !important;
-  }
+.contact-intro h3 {
+  font-size: 3rem !important;
+  font-weight: 700 !important;
 }
 
 .contact-intro .info-item i {
   color: #ffffff;
 }
 
+/* Info (icon + text) */
 .contact-info {
   display: flex !important; /* đặt các info-item nằm ngang */
   flex-direction: row !important;
   gap: 100px !important; /* khoảng cách giữa các item */
   align-items: center; /* căn thẳng hàng icon + text */
   justify-content: center;
-  // margin-top: 200px;
 }
 
 .info-item {
@@ -47,54 +52,54 @@
   gap: 8px; /* khoảng cách giữa icon và text */
   font-size: 3rem !important;
   font-weight: 700 !important;
-  p {
-    margin-bottom: 8px;
-  }
+}
+
+.info-item p {
+  margin-bottom: 8px;
 }
 
 .material-icons {
   font-size: 32px; /* Kích thước icon */
 }
 
+/* Tiêu đề contact */
 .contact-title-wrapper {
   position: relative;
   margin: 1rem 0 3rem;
   font-family: 'Rajdhani', sans-serif;
-
-  .contact-title {
-    position: relative;
-    font-size: 6rem;
-    font-weight: 700;
-    z-index: 2;
-  }
-
-  .contact-title-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80px);
-    font-size: 12rem;
-    font-weight: bold;
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
-
-    background: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 255, 255, 0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-
-    opacity: 0;
-    transition: opacity 2s ease-out, transform 2s ease-out;
-
-    &.visible {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-  }
 }
 
+.contact-title-wrapper .contact-title {
+  position: relative;
+  font-size: 6rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.contact-title-wrapper .contact-title-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80px);
+  font-size: 12rem;
+  font-weight: bold;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  background: linear-gradient(to right, rgb(0, 0, 0), rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.contact-title-wrapper .contact-title-bg.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* Section contact */
 .contact-section {
   padding: 60px 20px;
   background: #000000;
@@ -106,6 +111,7 @@
   margin-bottom: 40px;
 }
 
+/* Layout 2 cột desktop */
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 cột */
@@ -113,25 +119,7 @@
   align-items: flex-start;
 }
 
-.contact-intro {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-}
-
+/* Form */
 .contact-form {
   background: #626060;
   padding: 25px;
@@ -139,6 +127,7 @@
   box-shadow: 0 3px 118px rgb(104, 104, 104);
 }
 
+/* Form-group */
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -155,6 +144,7 @@ textarea {
   border: 0;
 }
 
+/* Button */
 button.btn {
   width: 100%;
   padding: 12px;
@@ -169,7 +159,7 @@ button.btn {
 
 button.btn i {
   margin-right: 5px;
-  transition: transform 0.3s ease; /* tạo hiệu ứng mượt */
+  transition: transform 0.3s ease;
 }
 
 button.btn:hover {
@@ -183,7 +173,7 @@ button.btn:hover i {
   transform: scale(1.5);
 }
 
-/* hiệu ứng bounce */
+/* Bounce animation */
 .bounce {
   animation: bounce 0.3s ease;
 }
@@ -232,13 +222,40 @@ textarea.invalid {
   margin-top: 4px;
 }
 
-/* Mobile responsive */
+/* ========== Responsive Mobile/Tablet ========== */
 @media (max-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr; /* 1 cột */
+    gap: 20px;
   }
-  .contact-intro,
-  .contact-form {
+
+  .contact-intro {
+    order: 1; /* intro ở trên */
     transform: translateX(0); /* tắt animation ngang */
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-intro h3 {
+    font-size: 2rem !important;
+  }
+
+  .contact-form {
+    order: 2; /* form ở dưới */
+    width: 100% !important;
+    box-sizing: border-box; /* không tràn padding */
+    transform: translateX(0);
+  }
+
+  .contact-title-wrapper .contact-title {
+    font-size: 3rem;
+  }
+
+  .contact-title-wrapper .contact-title-bg {
+    font-size: 6rem;
+  }
+
+  .info-item {
+    font-size: 1.2rem !important; /* icon + text nhỏ lại */
   }
 }
