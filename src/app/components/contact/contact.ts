@@ -21,7 +21,7 @@ export class ContactComponent implements AfterViewInit {
 
   // Thời gian & vị trí
   currentTime: string = '';
-  location: string = 'Hà Nội';
+  location: string = 'Hanoi';
   basePath = '/portfolio/assets/icons';
   // basePath = '/assets/icons';
   pinSrc = `${this.basePath}/pin.svg`;
