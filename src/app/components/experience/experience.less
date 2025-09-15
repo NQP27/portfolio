@@ -259,76 +259,30 @@
   }
 
   .timeline:before {
-    left: 50%; /* vẫn giữ cột giữa */
+    left: 90%; /* giữ cột giữa */
     transform: translateX(-50%);
   }
 
   .timeline-item {
-    width: 100%; /* full width cho item */
-    padding: 1rem 0;
+    width: 90%; /* full width */
+    text-align: center !important; /* canh giữa nội dung nếu cần */
   }
 
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    width: 100% !important; /* co nhỏ content */
+  /* quan trọng: căn chấm tròn lại */
+  .timeline-item:after {
+    left: 180% !important; /* chấm tròn theo vạch giữa */
+    transform: translateX(-50%) !important;
   }
 
-  .timeline-item.left .timeline-content {
-    margin-right: auto !important ; /* đẩy sang trái */
-    text-align: right !important;
+  .timeline-item .timeline-content {
+    width: 175% !important; /* content nhỏ hơn */
+    margin-left: auto !important;
+    margin-right: auto !important; /* giữa */
+    text-align: left !important; /* nội dung bên phải vạch */
   }
 
-  .timeline-item.right .timeline-content {
-    margin-left: auto !important; /* đẩy sang phải */
-    text-align: left !important;
-  }
-
-  .timeline-item.left:after {
-    right: calc(50% - 8px); /* nút tròn giữa */
-  }
-
-  .timeline-item.right:after {
-    left: calc(50% - 8px); /* nút tròn giữa */
-  }
-
-  .timeline-content {
-    background: #626060;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .timeline-content:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  }
-
-  .timeline-date {
-    font-size: 0.85rem;
-    color: #ddd;
-    font-style: italic;
-  }
-
+  /* logo nhỏ hơn */
   .timeline-logo {
-    width: auto;
     height: 30px !important;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-  }
-
-  .timeline-role {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .timeline-company {
-    font-size: 0.9rem;
-    color: #ccc;
-  }
-
-  .timeline-content:hover .timeline-logo {
-    transform: scale(1.2);
   }
 }
