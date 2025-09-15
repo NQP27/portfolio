@@ -6,7 +6,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="stats col-md-4 text-center">
+      <div class="stats col-md-6 text-center">
         <div class="stat-item mb-4">
           <h3>2+</h3>
           <p>Years</p>
@@ -21,14 +21,12 @@
         </div>
       </div>
 
-      <div class="col-md-8 text-center">
+      <div class="col-md-6 text-center">
         <div class="timeline">
           <div
             class="timeline-item"
             *ngFor="let item of timeline; let i = index"
             #timelineItem
-            [class.left]="i % 2 === 0"
-            [class.right]="i % 2 !== 0"
             (click)="openLink(item.link)"
           >
             <div class="timeline-content">
